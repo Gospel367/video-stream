@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Upload page</title>
+    <link rel="stylesheet" href="up.css">
+<style>
+
+
+/* footer */
+footer {
+  bottom: 0;
+  margin-top: 5px;
+  padding-top: 5px;
+  background: var(--primary-color-3);
+  height: 55vh;
+  overflow: fixed;
+}
+
+footer .logo {
+  font-family: "Inter", sans-serif;
+  color: var(--logo-color);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.column_container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  position: relative;
+  bottom: 0;
+}
+
+ul {
+  margin-top: 50px;
+}
+
+li {
+  list-style: none;
+}
+
+li:nth-child(1) {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+li a:nth-child(1) {
+  font-weight: 700;
+}
+
+li a {
+  text-decoration: none;
+  color: var(--tertiary-color-2);
+  font-weight: 400;
+}
+
+.copyright {
+  color: orange;
+}
+
+.copyright span {
+  font-size: 24px;
+}
+
+.brand_icons {
+  display: flex;
+}
+
+.brand_icons i {
+  color: var(--logo-color);
+  font-size: 15px;
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    position: relative;
+    flex-wrap: wrap;
+    overflow: auto;
+  }
+}
+</style>
+
+</head>
+<script src="up.js"></script>
+<body>
+  <header style="background: #6f2da8; padding: 0.5em;">
+  <h1 style="text-align: center; color: yellow;"><a style='color: yellow;' href="{% url 'index' %}">GREENHOOD</a></h1>
+    <div class="container">
+        <!--Nav bar open-->
+        <nav>
+            <i class="fa fa-bars menu" aria-hidden="true"></i>
+            <div class="search-bar">
+                <input type="text" placeholder="Search anything" name="Q" class="search-txt">
+                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+            <div class="profile">
+                <i class="fa fa-video-camera alarm" aria-hidden="true"></i>
+                <i class="fa-regular fa-bell"></i>
+                <img src="profile.png" alt="" width="40px">
+            </div>
+        </nav>
+    </div>
+
+    <!--Section page-->
+    <div class="container">
+        <section>
+            <ul>
+                <li><a href="{% url 'index' %}"><i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span></i>
+                    </a>
+                </li>
+                <li><a href="{% url 'dash' %}"><i class="fas fa fa-video-camera" aria-hidden="true"></i>
+                        <span class="nav-item">Watch later</span>
+                    </a>
+                </li>
+                <li><a href="{% url 'myvideos' %}"><i class="fas fa-wallet"></i>
+                        <span class="nav-item">My Uploads</span>
+                    </a>
+                </li>
+
+                <li><a href=""><i class="fas fa-question-circle"></i>
+                        <span class="nav-item">help</span>
+                    </a>
+                </li>
+
+                <li><a href="{% url 'logout' %}" class="logout"><i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Logout</span>
+                    </a>
+                </li>
+                </li>
+            </ul>
+        </section>
+      </header>
+<section style="padding: 1em;">
+
+                <h3>
+                    UPLOAD VIDEO
+                </h3>
+
+                <form method="post" enctype ="multipart/form-data">
+
+                {% csrf_token %}
+                 {{form.as_p}}
+                 <button type='submit' style="padding: 0.6em; background: lightblue; color: black;"> Upload</button>
+             </form>
+            </section>
+
+           </body>
+
+ <!-- -Footer-->
+ <footer style="background-color: #6f2da8;">
+    <div class="logo">GREENHOOD</div>
+    <div class="column_container">
+      <div class="column">
+        <ul>
+          <li><a href="">About Us</a></li>
+          <li><a href="">Vision</a></li>
+          <li><a href="">Careers</a></li>
+          <li><a href="">Terms of Service</a></li>
+          <li><a href="">Donate</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul>
+          <li><a href="">Discover</a></li>
+          <li><a href="">Home</a></li>
+          <li><a href="">Videos</a></li>
+          <li><a href="">Content Creators</a></li>
+          <li><a href="">Advanced Search</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul>
+          <li><a href="">Help</a></li>
+          <li><a href="">Help Centre</a></li>
+          <li><a href="">Report a problem</a></li>
+          <li><a href="">Suggesting Edits</a></li>
+          <li><a href="">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright_and_brand_icons">
+      <div class="copyright">
+        <span>&copy</span> 2022, Col-Films by Team Shark II
+      </div>
+      <div class="brand_icons">
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-square-twitter"></i></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></i></a>
+      </div>
+    </div>
+</footer>
+
+</html>
